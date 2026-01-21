@@ -7,3 +7,42 @@ Node.js follows an event-driven architecture.
 Back in days Apache HTTP Servers were popuplar and they were blocking servers, Node.JS came up to solve this blocking problem
 **Node.js is non-blocking**
 Node.js is managed and maintained by OpenJS foundation
+
+
+# Lets wrirte code
+After installing node in our local machine the command enables few feature which we can use in terminal.
+by time **node -v** will give you the node version and by typing **npm -v** will give you the npm version
+`Note: When we install node js it installs the npm by default`
+
+**Node REPL (Read, Evaluate, Print, Loop)**
+
+it means when you time node in terminal it gives a run time where you can write javascript code and it will be execuated. Behind the scene it runs the v8 engine. It is similar to the browser console.
+Node REPL is only there to execuate some testing code obviously we cannot write whole program in the terminal.
+we can create a file app.js in local computer and write a javascript code in it and to run it with node we can simply type `node app.js` and it will simply execute the code.
+
+**Global object in Node**
+Lets talk about global object in node js, We have sceen that in borwser if we type `window` it gives us the global object or if we type `this` it points to the same object
+but in node it is differet. in Node we have pointer `global` which points to the global object.
+> Note: typing `this` in node js shows the empty object it means that this does not points to the global object as we have sceen in browser javascript.  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
