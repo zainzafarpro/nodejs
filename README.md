@@ -160,6 +160,14 @@ import {a, somefunction} from './sum'
 ```
 
 This is how we export and import the module in mjs or known as ES module. This module system is by default followed by lots of Frontend libraries like react, next, angular and vue.
+ES modules load modules asynchronously, allowing for more efficient and flexible code execution. This distinction is a powerful feature.
+
+The second major difference is Strict mode in MJS. It means that if we try to execute the code we have written above
+```
+const a = 'Zain'
+b = 'Thi will not show an error while running'
+```
+it will throw an error. It makes the module generally safer than the older way which is commonjs.
 
 
 
