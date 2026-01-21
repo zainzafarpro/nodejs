@@ -72,7 +72,7 @@ app.js
 sum(2,4);
 ```
 
-Will this work? **No** this will not work because the member of a module (variables, functions) are private by default to that module we cannot directly call it into any file directly
+Will this work? **No** this will not work because the member of a module (variables, functions) are private by default to that module we cannot directly call it into any file 
 unless the module wants to. To call this function we have to first export it and import it into app.js. By doing so we will be able to call it then.
 To export and import the method there are few steps that we need to follow. To export we have to write a object that is called **module.exports**
 mode.exports refers to an object.
@@ -95,7 +95,7 @@ obj.sum(2,4);
 
 Now this code will show an output in console `6`. We can also destructure it on the fly like `const {sum} = require('./sum');` so we dont have to type `obj` everywhere in the file.
 Now for example there are multiple methods we have in sum.js file and we want to export it. How we can do that?
-Lets take a loop on example below:
+Lets take a look on example below:
 
 sum.js
 ```
@@ -114,8 +114,52 @@ anotherSum
 ```
 
 This example shows that we can assign a object to modeule.exports and export methods and variables more than one and to import we simply need to type `const {sum, anotherSum} = require('./sum');`
->Note: This is a default pattern of import and exporting modules and variable in node.js
+>Note: This is a default pattern of importing and exporting modules and variable in node.js
 
+
+**CommonJS and ES Modules**
+
+We have 2 modules system available in node js first is commonJS refers as `cjs` and second is Es Module refers as `mjs`. They both have some differences.
+There are 2 major difference that we need to know is that common js module system is synchronouse and ES modules systems ia asynchronouse it means that in synchronouse next line will be executed only after module is fully loaded.
+```
+require('somefile')
+const a = 1;
+```
+it means that variable a will only be executed and run after  code in `somefile` will fully be loaded.
+The 2nd major thing is **Strict Mode** Common JS modules system runs in non-strict mode and ES Module system runs in Strict mode. Lets take a look to an example below:
+
+```
+const a = 'Zain'
+b = 'Thi will not show an error while running'
+```
+In non-strict mode or common JS module system the code will be executed and it will not show an error.
+> Note: CommonJS module system is an older way if importing and exporting and it is widely used in projects.
+
+Lets talk about **ES Modules** system. It is not the default and we have to enable it to use it in our project. To do that first we need to create a `package.json` file
+package.json
+```
+{
+"type": "module"
+}
+```
+in package.json file we have to wirte type: module to use the ES module system. 
+In ES module we have a different way of exporing and importing the file as compare to commonJs module system. Lets take a look to an example below:
+
+sum.js
+```
+export let a = 1;
+export somefunction() {
+// some code
+}
+```
+app.js
+```
+import {a, somefunction} from './sum'
+
+// some code
+```
+
+This is how we export and import the module in mjs or known as ES module. This module system is by default followed by lots of Frontend libraries like react, next, angular and vue.
 
 
 
