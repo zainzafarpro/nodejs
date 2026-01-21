@@ -37,7 +37,6 @@ Now we all understand that writing a code in a single file is frustrating. We al
 These are called modules in node js. Lets create a file called `sum.js` in some.js we will simple log something.
 
 `sum.js`
-
 ```
 console.log('hello')
 ```
@@ -58,6 +57,184 @@ now the output will be something like this
 hello
 Test
 ```
+
+Now lets div deep and try to create a function function in sum.js which will sum 2 values and print it into the console and we will try to call this function in app.js
+
+sum.js
+```
+function sum(a,b){
+console.log(a+b);
+}
+```
+
+app.js
+```
+sum(2,4);
+```
+
+Will this work? **No** this will not work because the member of a module (variables, functions) are private by default to that module we cannot directly call it into any file directly
+unless the module wants to. To call this function we have to first export it and import it into app.js. By doing so we will be able to call it then.
+To export and import the method there are few steps that we need to follow. To export we have to write a object that is called **module.exports**
+mode.exports refers to an object.
+
+sum.js
+```
+function sum(a,b){
+console.log(a+b);
+}
+
+module.exports = sum;
+```
+
+app.js
+```
+const obj = require('./sum');
+
+obj.sum(2,4);
+```
+
+Now this code will show an output in console `6`. We can also destructure it on the fly like `const {sum} = require('./sum');` so we dont have to type `obj` everywhere in the file.
+Now for example there are multiple methods we have in sum.js file and we want to export it. How we can do that?
+Lets take a loop on example below:
+
+sum.js
+```
+function anotherSum(c,d){
+console.log(c+d);
+}
+
+function sum(a,b){
+console.log(a+b);
+}
+
+module.exports = {
+sum,
+anotherSum
+};
+```
+
+This example shows that we can assign a object to modeule.exports and export methods and variables more than one and to import we simply need to type `const {sum, anotherSum} = require('./sum');`
+>Note: This is a default pattern of import and exporting modules and variable in node.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
