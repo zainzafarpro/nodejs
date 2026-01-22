@@ -76,6 +76,7 @@ Will this work? **No** this will not work because the member of a module (variab
 unless the module wants to. To call this function we have to first export it and import it into app.js. By doing so we will be able to call it then.
 To export and import the method there are few steps that we need to follow. To export we have to write a object that is called **module.exports**
 mode.exports refers to an object.
+> Noted: when we require some file into our module behind the scene nodejs wraps all of the module's code into a IIFE (immediately invoked function expression) and then execute it. That is why it has the private scope. Module private system works as the same way as function in javascript.
 
 sum.js
 ```
@@ -115,6 +116,16 @@ anotherSum
 
 This example shows that we can assign a object to modeule.exports and export methods and variables more than one and to import we simply need to type `const {sum, anotherSum} = require('./sum');`
 >Note: This is a default pattern of importing and exporting modules and variable in node.js
+
+**What happen when we require some module ?**
+
+```
+require('./xyz.js')
+```
+Behind the scene this require function first resolve the file type weather its local file `./` or its a node module `require(node:somemodule)` or it is a json file `./some.json`
+Then it will load the module's code according to file type and after loading it will wrap the content into a IIFE `(function(){}())` after wrapping it will evaluate the file and inject the module paramter into IIFE and at the end it will cache the file's content.
+
+Resolving the file --> Loading the module's content according to file type --> wraps it inside IIFE --> Injects `module` parameter --> Caching.
 
 
 **CommonJS and ES Modules**
@@ -168,7 +179,6 @@ const a = 'Zain'
 b = 'Thi will   show an error while running'
 ```
 it will throw an error. It makes the module generally safer than the older way which is commonjs.
-
 
 
 
