@@ -16,7 +16,7 @@ by time **node -v** will give you the node version and by typing **npm -v** will
 
 **Node REPL (Read, Evaluate, Print, Loop)**
 
-It means when you time node in terminal it gives a run time where you can write javascript code and it will be execuated. Behind the scene it runs the v8 engine. It is similar to the browser console.
+It means when you type node in terminal it gives a run time where you can write javascript code and it will be execuated. Behind the scene it runs the v8 engine. It is similar to the browser console.
 Node REPL is only there to execuate some testing code obviously we cannot write whole program in the terminal.
 we can create a file app.js in local computer and write a javascript code in it and to run it with node we can simply type `node app.js` and it will simply execute the code.
 
@@ -76,7 +76,7 @@ Will this work? **No** this will not work because the member of a module (variab
 unless the module wants to. To call this function we have to first export it and import it into app.js. By doing so we will be able to call it then.
 To export and import the method there are few steps that we need to follow. To export we have to write a object that is called **module.exports**
 mode.exports refers to an object.
-> Noted: when we require some file into our module behind the scene nodejs wraps all of the module's code into a IIFE (immediately invoked function expression) and then execute it. That is why it has the private scope. Module private system works as the same way as function in javascript.
+> Note: when we require some file into our module behind the scene nodejs wraps all of the module's code into a IIFE (immediately invoked function expression) and then execute it. That is why it has the private scope. Module private system works as the same way as function in javascript.
 
 sum.js
 ```
@@ -154,7 +154,7 @@ package.json
 }
 ```
 in package.json file we have to wirte type: module to use the ES module system. 
-In ES module we have a different way of exporing and importing the file as compare to commonJs module system. Lets take a look to an example below:
+In ES module we have a different way of exporting and importing the file as compare to commonJs module system. Lets take a look to an example below:
 
 sum.js
 ```
@@ -173,7 +173,7 @@ import {a, somefunction} from './sum'
 This is how we export and import the module in mjs or known as ES module. This module system is by default followed by lots of Frontend libraries like react, next, angular and vue.
 ES modules load modules asynchronously, allowing for more efficient and flexible code execution. This distinction is a powerful feature.
 
-The second major difference is Strict mode in MJS. It means that if we try to execute the code we have written above
+The second major difference is Strict mode in `mjs`. It means that if we try to execute the code we have written above
 ```
 const a = 'Zain'
 b = 'Thi will   show an error while running'
