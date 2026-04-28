@@ -180,8 +180,11 @@ b = 'Thi will   show an error while running'
 ```
 it will throw an error. It makes the module generally safer than the older way which is commonjs.
 
+# Libuv & Async I/O
 
-
+Nodejs basically a wrapper which wraps v8 engine and libuv library to handle syncronous and asyncrounous task, for simple syncronous task v8 engine executes them directly without any problem but for async task like reading the file from your OS, making an api call or talking to the timer in your OS v8 engine just simply ofloads it to libuv and libuv handles them.
+Basically libuv act as a middle layer between v8 engine and async I/O tasks. Node js is asyncronous because of libuv.
+> Note: Libuv is a open source library which is written in C
 
 
 
